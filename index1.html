@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        * {
+
+             box-sizing: border-box;
+             margin: 0;
+             padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: 150px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        select {
+            padding: 10px;
+            margin: 5px;
+            width: 100px !important;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 15px 20px;
+            margin: 5px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="num1" placeholder="First Number">
+        <input type="text" id="num2" placeholder="Second Number">
+      
+    </div> 
+    <select id="ch">
+        <option data-value="+">+</option>
+        <option data-value="-">-</option>
+        <option data-value="*">*</option>
+        <option data-value="/">/</option>
+    </select>
+     
+    <button onclick="calculate1()">Calculate</button>
+    <h2 id="result">Result:</h2>
+
+    <div id="history">
+        <h3>Calculation History:</h3>
+        <ul id="historyList"></ul>
+    </div>
+
+</body>
+<script>
+    let history = [];
+    function calculate1()
+    {
+    var a=parseFloat(document.getElementById("num1").value);
+
+    var b=parseFloat(document.getElementById("num2").value)
+    var ch=document.getElementById("ch").value;
+    var result
+
+    
+    
+
+    
+    switch(ch)
+    {
+         case '+':
+            result=a+b;
+            break;
+         case '-':
+            result=a-b;
+            break;
+         case '*':
+            result=a*b;
+            break;
+         case '/': 
+            result=a/b;
+            break;
+        default:
+            result="Invalid operation";
+          
+    }
+    document.getElementById("result").innerText = "Result: " + result;
+  
+    }
+   
+
+
+
+</script>
+</html>
